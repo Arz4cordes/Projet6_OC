@@ -1,0 +1,156 @@
+#bloc_page
+{
+	background-color:#f1edf8;
+	padding:20px;
+	margin:auto;}
+
+body
+{
+    font-family: Comic Sans MS,Arial,sans-serif;
+
+}
+
+header
+{
+    border-bottom: 2px solid black;
+    margin-bottom:5px;
+}
+    
+header img
+{
+    height:150px;
+    width:180px;
+}
+
+#en_tete
+{
+	display:flex;
+    flex-direction: row;
+	justify-content:flex-start;
+    align-items:center;
+	border-bottom: 2px solid black;
+}
+
+
+.film_list
+{
+    
+    margin:auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    width:800px;
+    height:auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+
+#film0D, #film1D, #film2D, #film3D, #film4D, #film5D, #film6D
+{
+    
+    position:relative;
+}
+#film0A, #film1A, #film2A, #film3A, #film4A, #film5A, #film6A
+{
+    
+    position:relative;
+}
+#film0M, #film1M, #film2M, #film3M, #film4M, #film5M, #film6M
+{
+    
+    position:relative;
+}
+#film7B, #film1B, #film2B, #film3B, #film4B, #film5B, #film6B
+{
+    
+    position:relative;
+}
+
+#best_film
+{
+    position:relative;
+    text-align:center;
+    margin:auto;
+    padding:5px;
+}
+
+#mod_bf, #mod_0D, #mod_1D, #mod_2D, #mod_3D, #mod_4D, #mod_5D, #mod_6D,
+#mod_0A, #mod_7B, #mod_0M, #mod_1A, #mod_1B, #mod_1M,
+#mod_2A, #mod_2B, #mod_2M, #mod_3A, #mod_3B, #mod_3M,
+#mod_4A, #mod_4B, #mod_4M, #mod_5A, #mod_5B, #mod_5M,
+#mod_6A, #mod_6B, #mod_6M
+{
+    display: none;
+    position: fixed;
+    opacity: 0.96;
+    top: 0; right: 15%; left:15%; bottom:0;
+    background:maroon;
+    color:white;
+    font-weight: bold;
+}
+
+#mod_bf:target, #mod_0D:target, #mod_1D:target, #mod_2D:target, 
+#mod_3D:target, #mod_4D:target, #mod_5D:target, #mod_6D:target, 
+#mod_0A:target, #mod_7B:target, #mod_0M:target, #mod_1A:target, 
+#mod_1B:target, #mod_1M:target, #mod_2A:target, #mod_2B:target, 
+#mod_2M:target, #mod_3A:target, #mod_3B:target, #mod_3M:target, 
+#mod_4A:target, #mod_4B:target, #mod_4M:target, #mod_5A:target, 
+#mod_5B:target, #mod_5M:target, #mod_6A:target, #mod_6B:target,
+#mod_6M:target {
+    display:block;
+}
+
+
+
+
+.toclose
+{
+    float:right;
+    font-size: large;
+    color:yellow;
+    margin:5px;
+}
+
+.modal_image
+{
+    float:left;
+    background-color:black;
+    border-right:2px solid gray;
+    border-bottom:2px solid gray;
+    margin:5px;
+}
+
+
+h2
+{
+    margin:15px;
+    color:firebrick;
+    text-align:center;
+    font-weight: bold;
+}
+
+
+a:focus
+{
+    width:100px;
+}
+
+
+.footer_menu li
+{
+    background: #f1edf8;
+    border:lightslategray solid;
+    width:180px;
+    text-align: center;
+
+}
+
+.footer_menu ul
+{
+    justify-content: flex-end;
+}
+
+
