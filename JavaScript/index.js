@@ -10,13 +10,19 @@ function showMovie(data, aGenre) {
     let theTitle = data.results[i].title;
     let theImage = data.results[i].image_url;
     let theYear = data.results[i].year;
-    baliseImage = "film" + i.toString() + aGenre;
+    baliseImage = ".film" + i.toString() + aGenre;
     baliseModal = "mod_" + i.toString() + aGenre;
     refModal = "#" + baliseModal
-    document.getElementById(baliseImage).innerHTML = '<a href="' + refModal + '" title="Lien vers la fenêtre modale"><img src="'
-     + theImage + '" alt="image du film" title="' + theTitle + '" width="200" height=auto /> </a>';
+    let filmClass = document.querySelectorAll(baliseImage)
+    console.log(filmClass)
+    for (let k = 0 ; k < 4 ; k++){
+      filmClass[k].innerHTML = '<a href="' + refModal + '" title="Lien vers la fenêtre modale"><img src="'
+       + theImage + '" alt="image du film" title="' + theTitle + '" width="200" height=auto /> </a>';
+    }
+
     
-    modal_display = '<a href="#' + baliseImage + '" class="toclose">X</a> Titre: ' + theTitle;
+    
+    modal_display = '<a href="#heading_film" class="toclose">X</a> Titre: ' + theTitle;
     modal_display += '<img src="' + theImage + '" class="modal_image" alt="image du film" title="' + theTitle + '" width="200" height=auto />'
     modal_display += '<br/> Score imdb: ' + theImdb;
     modal_display += '<br/> Année: ' + theYear;
@@ -50,13 +56,17 @@ function showMovieP2(data, aGenre) {
     let theTitle = data.results[i-5].title;
     let theImage = data.results[i-5].image_url;
     let theYear = data.results[i-5].year;
-    baliseImage = "film" + i.toString() + aGenre;
+    baliseImage = ".film" + i.toString() + aGenre;
     baliseModal = "mod_" + i.toString() + aGenre;
     refModal = "#" + baliseModal
-    document.getElementById(baliseImage).innerHTML = '<a href="' + refModal + '" title="Lien vers la fenêtre modale"><img src="'
-     + theImage + '" alt="image du film" title="' + theTitle + '" width="200" height=auto /> </a>';
+    let filmClass = document.querySelectorAll(baliseImage)
+    for (let k = 0 ; k < 4 ; k++){
+      filmClass[k].innerHTML = '<a href="' + refModal + '" title="Lien vers la fenêtre modale"><img src="'
+       + theImage + '" alt="image du film" title="' + theTitle + '" width="200" height=auto /> </a>';
+    }
     
-    modal_display = '<a href="#' + baliseImage + '" class="toclose">X</a> Titre: ' + theTitle;
+    
+    modal_display = '<a href="#heading_film" class="toclose">X</a> Titre: ' + theTitle;
     modal_display += '<img src="' + theImage + '" class="modal_image" alt="image du film" title="' + theTitle + '" width="200" height=auto />'
     modal_display += '<br/> Score imdb: ' + theImdb;
     modal_display += '<br/> Année: ' + theYear;
