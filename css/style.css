@@ -38,7 +38,9 @@ header img
 
 .category
 {
-    margin-top:500px;
+    margin:auto;
+    padding:50px;
+    position:relative;
 }
 
 .film_list
@@ -52,7 +54,7 @@ header img
     flex-wrap: nowrap;
     width:1000px;
     height:auto;
-    position:absolute;
+    position:relative;
     overflow: hidden;
 }
 
@@ -66,8 +68,8 @@ header img
     
     width:50px;
     height: 50px;
-    border: solid black;
-    border-width: 0 3px 3px 0;
+    border: solid darkblue;
+    border-width: 0 5px 5px 0;
     padding: 12px;
     position:absolute;
     transform: rotate(-45deg) translateY(-50%);
@@ -82,20 +84,33 @@ header img
     left:15px;
     width:50px;
     height: 50px;
-    border: solid black;
-    border-width: 0 0 3px 3px;
+    border: solid darkblue;
+    border-width: 0 0 5px 5px;
     padding: 12px;
     position:absolute;
     transform: rotate(45deg) translateY(-50%);
 }
 
 
-#config1B, #config2B,  #config3B, #config4B, #config5B, #config6B, #config7B
+#config1B
 {
     position:relative;
     display:flex;
     width:1000px;
 }
+
+#config2B,  #config3B, #config4B, #config5B, #config6B, #config7B
+{
+    position:relative;
+    display:none;
+    width:1000px;
+}
+
+#config2B:target,  #config3B:target, #config4B:target, #config5B:target, #config6B:target, #config7B:target
+{
+    display:flex;
+}
+
 
 #config1A, #config2A,  #config3A, #config4A, #config5A, #config6A, #config7A
 {
@@ -197,10 +212,12 @@ header img
 
 h2
 {
-    margin:15px;
+    /*margin:15px;*/
     color:firebrick;
     text-align:center;
     font-weight: bold;
+    position:relative;
+
 }
 
 
