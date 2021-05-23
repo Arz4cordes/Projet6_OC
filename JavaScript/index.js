@@ -1,93 +1,116 @@
-function showMovie(data, aGenre) {
+// création du html de façon dynamique:
+// 1. pour chaque classe film_list, créer les 7 config
+// 2. parcourir chaque config, et y insérer les prev, class film.., et next
+
+// let categories = ["B", "D", "A", "M"];
+// let categoryClasses = document.querySelectorAll(.film_list);
+// for (let j = 0 ; j < 4 ; j++){
+//    for (let k = 1 ; k < 8 ; k++){
+        // nom de l'id config1A
+//        let configuration = "config" + k.toString() + categories[j];
+
+//        categoryClasses[j].innerHTML = ''
+//    }
+// }
+
+
+function showMovieInfo(data, baliseModal) {
+          let theTitle = data.title;
+          let theImage = data.image_url;
+          let theGenres = data.genres;
+          let theYear = data.year;
+          let theRated = data.rated;
+          let theImdb = data.imdb_score;
+          let theCountries = data.countries;
+          //resultat box office 
+          let theWriters = data.writers;
+          let theActors = data.actors;
+          let theDuration = data.duration;
+          let theDescription = data.description;
+          let theLongDescription = data.long_description;
+          //baliseModal = "mod_" + filmNumber;
+          refModal = "#" + baliseModal;
+          
+          modal_display = '<a href="#stopIt" class="toclose">X</a> Titre: ' + theTitle;
+          modal_display += '<img src="' + theImage + '" class="modal_image" alt="image du film" title="' + theTitle + '" width="200" height=auto />'
+          modal_display += '<br/> Score imdb: ' + theImdb;
+          modal_display += '<br/> Année: ' + theYear;
+          modal_display += '<br/> Durée (min): ' + theDuration;
+          modal_display += '<br/> Résumé: ' + theDescription + '<br/>' + theLongDescription;
+          modal_display += '<br/> Rated: ' + theRated;
+          modal_display += '<br/> Pays: ';
+          for (let j=0 ; j < theCountries.length ; j++){
+            modal_display += theCountries[j] + ' ; '
+          }
+          modal_display += '<br/> Genres: ';
+          for (let j=0 ; j < theGenres.length ; j++){
+            modal_display += theGenres[j] + ' ; '
+          }
+          modal_display += '<br/> Réalisateurs: '
+          for (let j=0 ; j < theWriters.length ; j++){
+            modal_display += theWriters[j] + ' ; '
+          }
+          modal_display += '<br/> Acteurs: '
+          for (let j=0 ; j < theActors.length ; j++){
+            modal_display += theActors[j] + ' ; '
+          }
+          
+          document.getElementById(baliseModal).innerHTML = modal_display;
+      }
+      
+    
+
+    
+
+
+
+
+function showMoviePicture(data, aGenre, idList) {
   let i = 0;
   if (aGenre == "B"){
     i = 1;}
   for (i ; i < 5 ; i++){
-    let theGenres = data.results[i].genres;
-    let theWriters = data.results[i].writers;
-    let theActors = data.results[i].actors;
-    let theImdb = data.results[i].imdb_score;
     let theTitle = data.results[i].title;
     let theImage = data.results[i].image_url;
-    let theYear = data.results[i].year;
-    baliseImage = ".film" + i.toString() + aGenre;
-    baliseModal = "mod_" + i.toString() + aGenre;
-    refModal = "#" + baliseModal
-    let filmClass = document.querySelectorAll(baliseImage)
-    console.log(filmClass)
+    let idFilm = data.results[i].id;
+    baliseImage = ".f" + i.toString() + aGenre;
+    let filmClass = document.querySelectorAll(baliseImage);
     for (let k = 0 ; k < 4 ; k++){
-      filmClass[k].innerHTML = '<a href="' + refModal + '" title="Lien vers la fenêtre modale"><img src="'
-       + theImage + '" alt="image du film" title="' + theTitle + '" width="200" height=auto /> </a>';
+      filmClass[k].innerHTML = '<img src="' + theImage + '" alt="image du film" title="'
+       + theTitle + '" class="' + idFilm + '" width="200" height=auto />';
     }
-
+    console.log(idFilm + baliseImage);
+    idList.push(idFilm);
     
-    
-    modal_display = '<a href="#heading_film" class="toclose">X</a> Titre: ' + theTitle;
-    modal_display += '<img src="' + theImage + '" class="modal_image" alt="image du film" title="' + theTitle + '" width="200" height=auto />'
-    modal_display += '<br/> Score imdb: ' + theImdb;
-    modal_display += '<br/> Année: ' + theYear;
-    modal_display += '<br/> Genres: '
-    for (let j=0 ; j < theGenres.length ; j++){
-      modal_display += theGenres[j] + ' ; '
-    }
-    modal_display += '<br/> Réalisateurs: '
-    for (let j=0 ; j < theWriters.length ; j++){
-      modal_display += theWriters[j] + ' ; '
-    }
-    modal_display += '<br/> Acteurs: '
-    for (let j=0 ; j < theActors.length ; j++){
-      modal_display += theActors[j] + ' ; '
-    }
-    document.getElementById(baliseModal).innerHTML = modal_display;
   }
   
 }
 
-function showMovieP2(data, aGenre) {
+
+function showMoviePicture2(data, aGenre, idList) {
   let p = 7;
   if (aGenre == "B"){
     p = 8;
   }
   for (let i = 5 ; i < p ; i++){
-    let theGenres = data.results[i-5].genres;
-    let theWriters = data.results[i-5].writers;
-    let theActors = data.results[i-5].actors;
-    let theImdb = data.results[i-5].imdb_score;
     let theTitle = data.results[i-5].title;
     let theImage = data.results[i-5].image_url;
-    let theYear = data.results[i-5].year;
-    baliseImage = ".film" + i.toString() + aGenre;
-    baliseModal = "mod_" + i.toString() + aGenre;
-    refModal = "#" + baliseModal
+    let idFilm = data.results[i-5].id;
+    baliseImage = ".f" + i.toString() + aGenre;
     let filmClass = document.querySelectorAll(baliseImage)
     for (let k = 0 ; k < 4 ; k++){
-      filmClass[k].innerHTML = '<a href="' + refModal + '" title="Lien vers la fenêtre modale"><img src="'
-       + theImage + '" alt="image du film" title="' + theTitle + '" width="200" height=auto /> </a>';
+      filmClass[k].innerHTML = '<img src="' + theImage + '" alt="image du film" title="'
+       + theTitle + '" class="' + idFilm + '" width="200" height=auto />';
     }
-    
-    
-    modal_display = '<a href="#heading_film" class="toclose">X</a> Titre: ' + theTitle;
-    modal_display += '<img src="' + theImage + '" class="modal_image" alt="image du film" title="' + theTitle + '" width="200" height=auto />'
-    modal_display += '<br/> Score imdb: ' + theImdb;
-    modal_display += '<br/> Année: ' + theYear;
-    modal_display += '<br/> Genres: '
-    for (let j=0 ; j < theGenres.length ; j++){
-      modal_display += theGenres[j] + ' ; '
-    }
-    modal_display += '<br/> Réalisateurs: '
-    for (let j=0 ; j < theWriters.length ; j++){
-      modal_display += theWriters[j] + ' ; '
-    }
-    modal_display += '<br/> Acteurs: '
-    for (let j=0 ; j < theActors.length ; j++){
-      modal_display += theActors[j] + ' ; '
-    }
-    document.getElementById(baliseModal).innerHTML = modal_display;
+    console.log(idFilm + baliseImage);
+    idList.push(idFilm);
   }
   
 }
 
 
+let idList = [];
+// requète drama
 apiAddress = "http://localhost:8000/api/v1/titles/";
 apiAddress += "?year=&min_year=&max_year=";
 apiAddress += "&genre=&genre_contains=drama";
@@ -95,7 +118,7 @@ apiAddress += "&sort_by=-imdb_score";
 
 fetch(apiAddress)
 .then((resp) => resp.json())
-.then((data) => showMovie(data, "D"))
+.then((data) => showMoviePicture(data, "D", idList))
 .catch(error => console.log(error))
 
 // page 2 de la requète drama
@@ -104,7 +127,7 @@ apiAddress += "&page=2";
 
 fetch(apiAddress)
 .then((resp) => resp.json())
-.then((data) => showMovieP2(data, "D"))
+.then((data) => showMoviePicture2(data, "D", idList))
 .catch(error => console.log(error))
 
 
@@ -118,7 +141,7 @@ apiAddress += "&sort_by=-imdb_score";
 
 fetch(apiAddress)
 .then((resp) => resp.json())
-.then((data) => showMovie(data, "A"))
+.then((data) => showMoviePicture(data, "A", idList))
 .catch(error => console.log(error))
 
 // page 2 de la requète adventure
@@ -127,7 +150,7 @@ apiAddress += "&page=2";
 
 fetch(apiAddress)
 .then((resp) => resp.json())
-.then((data) => showMovieP2(data, "A"))
+.then((data) => showMoviePicture2(data, "A", idList))
 .catch(error => console.log(error))
 
 
@@ -143,7 +166,7 @@ apiAddress += "&sort_by=-imdb_score";
 
 fetch(apiAddress)
 .then((resp) => resp.json())
-.then((data) => showMovie(data, "M"))
+.then((data) => showMoviePicture(data, "M", idList))
 .catch(error => console.log(error))
 
 // page 2 de la requète music
@@ -152,7 +175,7 @@ apiAddress += "&page=2";
 
 fetch(apiAddress)
 .then((resp) => resp.json())
-.then((data) => showMovieP2(data, "M"))
+.then((data) => showMoviePicture2(data, "M", idList))
 .catch(error => console.log(error))
 
 
@@ -165,20 +188,45 @@ apiAddress = "http://localhost:8000/api/v1/titles/";
 apiAddress += "?year=&min_year=&max_year=";
 apiAddress += "&sort_by=-imdb_score";
 
+
 fetch(apiAddress)
 .then((resp) => resp.json())
-.then((data) => showMovie(data, "B"))
+.then((data) => showMoviePicture(data, "B", idList))
 .catch(error => console.log(error))
 
 
-// page 2 de la requète best films
 
+
+
+
+
+
+// page 2 de la requète best films
+apiAddress = "http://localhost:8000/api/v1/titles/";
+apiAddress += "?year=&min_year=&max_year=";
+apiAddress += "&sort_by=-imdb_score";
 apiAddress += "&page=2";
 
 fetch(apiAddress)
 .then((resp) => resp.json())
-.then((data) => showMovieP2(data, "B"))
+.then((data) => showMoviePicture2(data, "B", idList))
 .catch(error => console.log(error))
+
+
+// fenêtre modale pour les meilleurs films
+
+let pictureClick= document.querySelectorAll(".f1B");
+for (let k = 0 ; k < 4 ; k++){
+    pictureClick[k].addEventListener ('click', function(){
+      fetch("http://localhost:8000/api/v1/titles/7822474")
+      .then((resp) => resp.json())
+      .then((data) => showMovieInfo(data, "mod_1B"))
+      .catch(error => console.log(error))
+    });
+};
+
+
+
 
 
 
@@ -188,40 +236,65 @@ fetch(apiAddress)
 apiAddress = "http://localhost:8000/api/v1/titles/";
 apiAddress += "?year=&min_year=&max_year=";
 apiAddress += "&sort_by=-imdb_score";
-
 fetch(apiAddress)
 .then((resp) => resp.json())
-.then(function(data) {
-    let infos = data.results;
-    let theGenres = data.results[0].genres;
-    let theWriters = data.results[0].writers;
-    let theActors = data.results[0].actors;
-    let theImdb = data.results[0].imdb_score;
+.then(function(data){
+    let theId = data.results[0].id;
     let theTitle = data.results[0].title;
     let theImage = data.results[0].image_url;
-    let theYear = data.results[0].year;
-
     document.getElementById("best_film").innerHTML = '<a href="#mod_bf" title="Lien vers la fenêtre modale"><img src="'
-       + theImage + '" alt="image du film" title="' + theTitle + '" width="200" height=auto /> </a>';
-      
-      modal_display = '<a href="#" class="toclose">X</a> Titre: ' + theTitle;
-      modal_display += '<img src="' + theImage + '" class="modal_image "alt="image du film" title="' + theTitle + '" width="200" height=auto />'
-      modal_display += '<br/> Score imdb: ' + theImdb;
-      modal_display += '<br/> Année: ' + theYear;
-      modal_display += '<br/> Genres: '
-      for (let i=0 ; i < theGenres.length ; i++){
-        modal_display += theGenres[i] + ' ; '
-      }
-      modal_display += '<br/> Réalisateurs: '
-      for (let i=0 ; i < theWriters.length ; i++){
-        modal_display += theWriters[i] + ' ; '
-      }
-      modal_display += '<br/> Acteurs: '
-      for (let i=0 ; i < theActors.length ; i++){
-        modal_display += theActors[i] + ' ; '
-      }
-      document.getElementById("mod_bf").innerHTML = modal_display;
+     + theImage + '" alt="image du film" title="' + theTitle + '" width="200" height=auto /> </a>';
+    filmAddress = "http://localhost:8000/api/v1/titles/" + theId.toString();
+    fetch(filmAddress)
+    .then((resp) => resp.json())
+    .then(function(data){
+      let theGenres = data.genres;
+      let theWriters = data.writers;
+      let theActors = data.actors;
+      let theImdb = data.imdb_score;
+      let theTitle = data.title;
+      let theImage = data.image_url;
+      let theYear = data.year;
+      let theRated = data.rated;
+      let theDuration = data.duration;
+      let theDescription = data.description;
+      let theLongDescription = data.long_description;
+      let theCountries = data.countries;
+        modal_display = '<a href="#stopIt" class="toclose">X</a> Titre: ' + theTitle;
+        modal_display += '<img src="' + theImage + '" class="modal_image" alt="image du film" title="' + theTitle + '" width="200" height=auto />'
+        modal_display += '<br/> Score imdb: ' + theImdb;
+        modal_display += '<br/> Année: ' + theYear;
+        modal_display += '<br/> Durée (min): ' + theDuration;
+        modal_display += '<br/> Résumé: ' + theDescription + '<br/>' + theLongDescription;
+        modal_display += '<br/> Rated: ' + theRated;
+        modal_display += '<br/> Pays: ';
+        console.log(modal_display)
+        for (let j=0 ; j < theCountries.length ; j++){
+          modal_display += theCountries[j] + ' ; '
+        }
+        modal_display += '<br/> Genres: ';
+        for (let j=0 ; j < theGenres.length ; j++){
+          modal_display += theGenres[j] + ' ; '
+        }
+        modal_display += '<br/> Réalisateurs: '
+        for (let j=0 ; j < theWriters.length ; j++){
+          modal_display += theWriters[j] + ' ; '
+        }
+        modal_display += '<br/> Acteurs: '
+        for (let j=0 ; j < theActors.length ; j++){
+          modal_display += theActors[j] + ' ; '
+        }
+  
+        document.getElementById("mod_bf").innerHTML = modal_display;
+    })
+    .catch(error => console.log(error))
+
   
 })
-.catch(error => console.log(error))
+
+
+
+console.log(idList);
+
+
 
