@@ -73,13 +73,15 @@ function showMoviePicture(data, aGenre, idList) {
     let theTitle = data.results[i].title;
     let theImage = data.results[i].image_url;
     let idFilm = data.results[i].id;
-    baliseImage = ".f" + i.toString() + aGenre;
+    let baliseImage = ".film" + i.toString() + aGenre;
+    let refModal = "#mod_" + i.toString() + aGenre;
     let filmClass = document.querySelectorAll(baliseImage);
     for (let k = 0 ; k < 4 ; k++){
-      filmClass[k].innerHTML = '<img src="' + theImage + '" alt="image du film" title="'
-       + theTitle + '" class="' + idFilm + '" width="200" height=auto />';
-    }
-    console.log(idFilm + baliseImage);
+      filmClass[k].innerHTML = '<a href="' + refModal + '" class="' + idFilm + '" title="Lien vers la fenêtre modale">'
+                                + '<img src="'+ theImage + '" alt="image du film" title="'
+                                + theTitle + '" width="200" height=auto /></a> ';
+      }
+    
     idList.push(idFilm);
     
   }
@@ -96,13 +98,16 @@ function showMoviePicture2(data, aGenre, idList) {
     let theTitle = data.results[i-5].title;
     let theImage = data.results[i-5].image_url;
     let idFilm = data.results[i-5].id;
-    baliseImage = ".f" + i.toString() + aGenre;
+    baliseImage = ".film" + i.toString() + aGenre;
+    let refModal = "#mod_" + i.toString() + aGenre;
     let filmClass = document.querySelectorAll(baliseImage)
     for (let k = 0 ; k < 4 ; k++){
-      filmClass[k].innerHTML = '<img src="' + theImage + '" alt="image du film" title="'
-       + theTitle + '" class="' + idFilm + '" width="200" height=auto />';
+      filmClass[k].innerHTML = '<a href="' + refModal + '" class="' + idFilm + '" title="Lien vers la fenêtre modale">'
+      + '<img src="'+ theImage + '" alt="image du film" title="'
+      + theTitle + '" width="200" height=auto /></a> ';
+
     }
-    console.log(idFilm + baliseImage);
+    
     idList.push(idFilm);
   }
   
@@ -131,6 +136,25 @@ fetch(apiAddress)
 .catch(error => console.log(error))
 
 
+// modales pour drama
+for(let i=0 ; i<7 ; i++){
+  let theClass = ".film" + i.toString() + "D";
+  let theModal = "mod_" + i.toString() + "D";
+  let pictureClick= document.querySelectorAll(theClass);
+    for (let k = 0 ; k < 4 ; k++){
+        pictureClick[k].addEventListener ('click', function(){
+          let theLink = pictureClick[k].querySelector("a");
+          let filmRef = theLink.getAttribute("class");
+          let filmAddress = "http://localhost:8000/api/v1/titles/" + filmRef.toString();
+          fetch(filmAddress)
+          .then((resp) => resp.json())
+          .then((data) => showMovieInfo(data, theModal))
+          .catch(error => console.log(error))
+        });
+    };
+}
+
+
 
 
 // films d'aventures
@@ -153,6 +177,23 @@ fetch(apiAddress)
 .then((data) => showMoviePicture2(data, "A", idList))
 .catch(error => console.log(error))
 
+// modales pour adventure
+for(let i=0 ; i<7 ; i++){
+  let theClass = ".film" + i.toString() + "A";
+  let theModal = "mod_" + i.toString() + "A";
+  let pictureClick= document.querySelectorAll(theClass);
+    for (let k = 0 ; k < 4 ; k++){
+        pictureClick[k].addEventListener ('click', function(){
+          let theLink = pictureClick[k].querySelector("a");
+          let filmRef = theLink.getAttribute("class");
+          let filmAddress = "http://localhost:8000/api/v1/titles/" + filmRef.toString();
+          fetch(filmAddress)
+          .then((resp) => resp.json())
+          .then((data) => showMovieInfo(data, theModal))
+          .catch(error => console.log(error))
+        });
+    };
+}
 
 
 
@@ -178,7 +219,23 @@ fetch(apiAddress)
 .then((data) => showMoviePicture2(data, "M", idList))
 .catch(error => console.log(error))
 
-
+// modale pour la musique
+for(let i=0 ; i<7 ; i++){
+  let theClass = ".film" + i.toString() + "M";
+  let theModal = "mod_" + i.toString() + "M";
+  let pictureClick= document.querySelectorAll(theClass);
+    for (let k = 0 ; k < 4 ; k++){
+        pictureClick[k].addEventListener ('click', function(){
+          let theLink = pictureClick[k].querySelector("a");
+          let filmRef = theLink.getAttribute("class");
+          let filmAddress = "http://localhost:8000/api/v1/titles/" + filmRef.toString();
+          fetch(filmAddress)
+          .then((resp) => resp.json())
+          .then((data) => showMovieInfo(data, theModal))
+          .catch(error => console.log(error))
+        });
+    };
+}
 
 
 
@@ -215,15 +272,24 @@ fetch(apiAddress)
 
 // fenêtre modale pour les meilleurs films
 
-let pictureClick= document.querySelectorAll(".f1B");
-for (let k = 0 ; k < 4 ; k++){
-    pictureClick[k].addEventListener ('click', function(){
-      fetch("http://localhost:8000/api/v1/titles/7822474")
-      .then((resp) => resp.json())
-      .then((data) => showMovieInfo(data, "mod_1B"))
-      .catch(error => console.log(error))
-    });
-};
+for(let i=1 ; i<8 ; i++){
+  let theClass = ".film" + i.toString() + "B";
+  let theModal = "mod_" + i.toString() + "B";
+  let pictureClick= document.querySelectorAll(theClass);
+    for (let k = 0 ; k < 4 ; k++){
+        pictureClick[k].addEventListener ('click', function(){
+          let theLink = pictureClick[k].querySelector("a");
+          let filmRef = theLink.getAttribute("class");
+          let filmAddress = "http://localhost:8000/api/v1/titles/" + filmRef.toString();
+          fetch(filmAddress)
+          .then((resp) => resp.json())
+          .then((data) => showMovieInfo(data, theModal))
+          .catch(error => console.log(error))
+        });
+    };
+}
+
+
 
 
 
@@ -268,7 +334,7 @@ fetch(apiAddress)
         modal_display += '<br/> Résumé: ' + theDescription + '<br/>' + theLongDescription;
         modal_display += '<br/> Rated: ' + theRated;
         modal_display += '<br/> Pays: ';
-        console.log(modal_display)
+        
         for (let j=0 ; j < theCountries.length ; j++){
           modal_display += theCountries[j] + ' ; '
         }
