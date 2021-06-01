@@ -1,34 +1,60 @@
 #bloc_page
 {
-	background-color:#f1edf8;
+	background-color:rgb(14, 13, 13);
 	padding:20px;
-	margin:auto;}
+	margin:auto;
+}
 
 body
 {
     font-family: Comic Sans MS,Arial,sans-serif;
+}
 
+strong
+{
+    text-decoration: underline;
+    color:rgba(255, 255, 0, 0.904);
+    font-weight: bold;
+}
+
+mark
+{
+    font-size: 150%;
+    background-color: maroon;
+    color:white;
+    text-decoration:none;
 }
 
 header
 {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid rgb(255, 72, 0);
     margin-bottom:5px;
-}
-    
-header img
-{
-    height:150px;
-    width:180px;
+    color:rgb(255, 72, 0);
 }
 
 #en_tete
 {
 	display:flex;
     flex-direction: row;
-	justify-content:flex-start;
+	justify-content:center;
     align-items:center;
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid black; 
+}
+
+.element1
+{
+    font-weight: bold;
+    font-size:400%;
+    margin:30px;
+    transform:rotate(-56deg);
+}
+
+.element2
+{
+    font-weight: bold;
+    font-size:400%;
+    transform:rotate(-56deg);
+    margin:30px;
 }
 
 #heading_film
@@ -45,7 +71,6 @@ header img
 
 .film_list
 {
-    
     margin:auto;
     display:flex;
     flex-direction: row;
@@ -60,15 +85,15 @@ header img
 
 .next{
     width:100px;
-    height: 100px;
-    
+    height: 100px;  
 }
+
 .next a{
     top:50%;
     
     width:50px;
     height: 50px;
-    border: solid darkblue;
+    border: solid white;
     border-width: 0 5px 5px 0;
     padding: 12px;
     position:absolute;
@@ -79,12 +104,14 @@ header img
     width:100px;
     height: 100px;
 }
-.prev a{
+
+.prev a
+{
     top:50%;
     left:15px;
     width:50px;
     height: 50px;
-    border: solid darkblue;
+    border: solid white;
     border-width: 0 0 5px 5px;
     padding: 12px;
     position:absolute;
@@ -97,13 +124,21 @@ header img
     position:relative;
     display:flex;
     width:1000px;
+    
 }
 
 #config2B,  #config3B, #config4B, #config5B, #config6B, #config7B
 {
     position:relative;
     display:none;
-    width:1000px;
+    width:1000px;  
+}
+
+.films_wrapper
+{
+    display: flex;
+    border: 2px solid white;
+    margin-top: 30px;
 }
 
 #config2B:target,  #config3B:target, #config4B:target, #config5B:target, #config6B:target, #config7B:target
@@ -116,43 +151,97 @@ header img
 {
     position:relative;
     display:flex;
-    width:1000px;
+    width:1000px; 
 }
 
 #config1M, #config2M,  #config3M, #config4M, #config5M, #config6M, #config7M
 {
     position:relative;
     display:flex;
-    width:1000px;
+    width:1000px;   
 }
 
 #config1D, #config2D,  #config3D, #config4D, #config5D, #config6D, #config7D
 {
     position:relative;
     display:flex;
-    width:1000px;
+    width:1000px;  
 }
-
 
 .film0D, .film1D, .film2D, .film3D, .film4D, .film5D, .film6D
 {
-    
     position:relative;
 }
-.film0A, .film1A, .film2A, .film3A, .film4A, .film5A, .film6A
+
+.film0D a, .film1D a, .film2D a, .film3D a, .film4D a, .film5D a, .film6D a
 {
-    
+    position:absolute;
+    right:5px;
+    top: 20px;
+    background-color: maroon;
+    color: white;
+    text-decoration: none;
+    border: solid 2px;
+    border-radius: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.film0A, .film1A, .film2A, .film3A, .film4A, .film5A, .film6A
+{ 
     position:relative;
 }
+
+.film0A a, .film1A a, .film2A a, .film3A a, .film4A a, .film5A a, .film6A a
+{
+    position:absolute;
+    right:5px;
+    top: 20px;
+    background-color: maroon;
+    color: white;
+    text-decoration: none;
+    border: solid 2px;
+    border-radius: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .film0M, .film1M, .film2M, .film3M, .film4M, .film5M, .film6M
 {
-    
     position:relative;
 }
+
+.film0M a, .film1M a, .film2M a, .film3M a, .film4M a, .film5M a, .film6M a
+{  
+    position:absolute;
+    right:5px;
+    top: 20px;
+    background-color: maroon;
+    color: white;
+    text-decoration: none;
+    border: solid 2px;
+    border-radius: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .film7B, .film1B, .film2B, .film3B, .film4B, .film5B, .film6B
 {
-    
     position:relative;
+}
+
+.film7B a, .film1B a, .film2B a, .film3B a, .film4B a, .film5B a, .film6B a
+{
+    position:absolute;
+    right:5px;
+    top: 20px;
+    background-color: maroon;
+    color: white;
+    text-decoration: none;
+    border: solid 2px;
+    border-radius: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 #best_film
@@ -160,7 +249,31 @@ header img
     position:relative;
     text-align:center;
     margin:auto;
-    padding:5px;
+    width:200px;
+}
+
+.play_film
+{
+    transform: rotate(60deg);
+}
+
+#best_film img
+{
+    border: 2px solid white;
+}
+
+#best_film a
+{
+    position:absolute;
+    right:5px;
+    top: 20px;
+    background-color: maroon;
+    color: white;
+    text-decoration: none;
+    border: solid 2px;
+    border-radius: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 #mod_bf, #mod_0D, #mod_1D, #mod_2D, #mod_3D, #mod_4D, #mod_5D, #mod_6D,
@@ -172,10 +285,12 @@ header img
     display: none;
     position: fixed;
     opacity: 0.96;
-    top: 0; right: 15%; left:15%; bottom:0;
+    top: 10px; right: 15%; left:15%; bottom:0;
     background:maroon;
     color:white;
     font-weight: bold;
+    padding-left:10px;
+    padding-right: 10px;
 }
 
 #mod_bf:target, #mod_0D:target, #mod_1D:target, #mod_2D:target, 
@@ -185,18 +300,17 @@ header img
 #mod_2M:target, #mod_3A:target, #mod_3B:target, #mod_3M:target, 
 #mod_4A:target, #mod_4B:target, #mod_4M:target, #mod_5A:target, 
 #mod_5B:target, #mod_5M:target, #mod_6A:target, #mod_6B:target,
-#mod_6M:target {
+#mod_6M:target 
+{
     display:block;
+    text-align: justify;
 }
-
-
-
 
 .toclose
 {
     float:right;
     font-size: large;
-    color:yellow;
+    color:black;
     margin:5px;
 }
 
@@ -204,41 +318,51 @@ header img
 {
     float:left;
     background-color:black;
-    border-right:2px solid gray;
-    border-bottom:2px solid gray;
-    margin:5px;
+    border:2px solid gray;
+    position: relative;
+    right: 10px;
+    margin-right:5px;
 }
-
 
 h2
 {
     /*margin:15px;*/
-    color:firebrick;
+    color:rgb(255, 72, 0);
     text-align:center;
     font-weight: bold;
     position:relative;
 
 }
 
-
-a:focus
+a:visited
 {
-    width:100px;
+    color:white;
+    text-decoration:none;
 }
 
+#pied_page
+{
+    
+    color:white;
+    border-top: solid rgb(255, 72, 0);
+}
+
+#pied_page a
+{
+    color:white;
+}
 
 .footer_menu li
 {
-    background: #f1edf8;
-    border:lightslategray solid;
-    width:180px;
-    text-align: center;
-
+    margin:20px;
 }
 
 .footer_menu ul
 {
     justify-content: flex-end;
+    display:flex;
+    justify-content: space-around;
+    width:50%;
 }
 
 
