@@ -77,10 +77,10 @@ header
     justify-content: flex-start;
     align-items: baseline;
     flex-wrap: nowrap;
-    width:1000px;
+    width:1045px;
     height:auto;
     position:relative;
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .next{
@@ -123,7 +123,8 @@ header
 {
     position:relative;
     display:flex;
-    width:1000px;
+    width:1045px;
+    
     
 }
 
@@ -131,14 +132,15 @@ header
 {
     position:relative;
     display:none;
-    width:1000px;  
+    width:1045px;
+  
 }
 
 .films_wrapper
 {
     display: flex;
-    border: 2px solid white;
     margin-top: 30px;
+    width:845px;
 }
 
 #config2B:target,  #config3B:target, #config4B:target, #config5B:target, #config6B:target, #config7B:target
@@ -151,97 +153,126 @@ header
 {
     position:relative;
     display:flex;
-    width:1000px; 
+    width:1045px; 
 }
 
 #config1M, #config2M,  #config3M, #config4M, #config5M, #config6M, #config7M
 {
     position:relative;
     display:flex;
-    width:1000px;   
+    width:1045px;   
 }
 
 #config1D, #config2D,  #config3D, #config4D, #config5D, #config6D, #config7D
 {
     position:relative;
     display:flex;
-    width:1000px;  
+    width:1045px;  
 }
 
 .film0D, .film1D, .film2D, .film3D, .film4D, .film5D, .film6D
 {
     position:relative;
+    padding-right: 15px;
 }
 
 .film0D a, .film1D a, .film2D a, .film3D a, .film4D a, .film5D a, .film6D a
 {
     position:absolute;
-    right:5px;
+    right:20px;
     top: 20px;
-    background-color: maroon;
+    background-color:black;
     color: white;
     text-decoration: none;
-    border: solid 2px;
+    border: solid 2px rgb(255, 72, 0);
     border-radius: 8px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.film0D a:hover, .film1D a:hover, .film2D a:hover, .film3D a:hover, .film4D a:hover, .film5D a:hover, .film6D a:hover
+{
+    border: 2px solid white;
 }
 
 .film0A, .film1A, .film2A, .film3A, .film4A, .film5A, .film6A
 { 
     position:relative;
+    padding-right: 15px;
 }
 
 .film0A a, .film1A a, .film2A a, .film3A a, .film4A a, .film5A a, .film6A a
 {
     position:absolute;
-    right:5px;
+    right:20px;
     top: 20px;
-    background-color: maroon;
+    background-color:black;
     color: white;
     text-decoration: none;
-    border: solid 2px;
+    border: solid 2px rgb(255, 72, 0);
     border-radius: 8px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.film0A a:hover, .film1A a:hover, .film2A a:hover, .film3A a:hover, .film4A a:hover, .film5A a:hover, .film6A a:hover
+{
+    border: 2px solid white;
 }
 
 .film0M, .film1M, .film2M, .film3M, .film4M, .film5M, .film6M
 {
     position:relative;
+    padding-right: 15px;
 }
 
 .film0M a, .film1M a, .film2M a, .film3M a, .film4M a, .film5M a, .film6M a
 {  
     position:absolute;
-    right:5px;
+    right:20px;
     top: 20px;
-    background-color: maroon;
+    background-color:black;
     color: white;
     text-decoration: none;
-    border: solid 2px;
+    border: solid 2px rgb(255, 72, 0);
     border-radius: 8px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.film0M a:hover, .film1M a:hover, .film2M a:hover, .film3M a:hover, .film4M a:hover, .film5M a:hover, .film6M a:hover
+{
+    border: 2px solid white;
 }
 
 .film7B, .film1B, .film2B, .film3B, .film4B, .film5B, .film6B
 {
     position:relative;
+    padding-right: 15px;
 }
 
 .film7B a, .film1B a, .film2B a, .film3B a, .film4B a, .film5B a, .film6B a
 {
     position:absolute;
-    right:5px;
+    right:20px;
     top: 20px;
-    background-color: maroon;
+    background-color:black;
     color: white;
     text-decoration: none;
-    border: solid 2px;
+    border: solid 2px rgb(255, 72, 0);
     border-radius: 8px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.film7B a:hover, .film1B a:hover, .film2B a:hover, .film3B a:hover, .film4B a:hover, .film5B a:hover, .film6B a:hover
+{
+    border: 2px solid white;
+}
+
+.films_wrapper img:hover
+{
+    border: solid 2px white;
 }
 
 #best_film
@@ -257,7 +288,12 @@ header
     transform: rotate(60deg);
 }
 
-#best_film img
+#best_film img:hover
+{
+    border: 2px solid white;
+}
+
+#best_film a:hover
 {
     border: 2px solid white;
 }
@@ -267,10 +303,10 @@ header
     position:absolute;
     right:5px;
     top: 20px;
-    background-color: maroon;
+    background-color:black;
     color: white;
     text-decoration: none;
-    border: solid 2px;
+    border: solid 2px rgb(255, 72, 0);
     border-radius: 8px;
     padding-left: 5px;
     padding-right: 5px;
